@@ -12,7 +12,11 @@
   text-align: center;
   border-radius: 20PX;
 }
-input, button{
+.text-end h2{
+  margin-top: 2rem;
+}
+
+.box input, button{
  margin: 1rem;
  margin-top: 5rem;
  border-radius: 5px;
@@ -21,6 +25,22 @@ input, button{
 input[type=text]:focus{
   outline: none;
 }
+.list-items{
+  max-height: 210px;
+  overflow-y: auto;
+}
+.delete-complete{
+  height: 50px;
+  width: 50%;
+}
+li{
+  display: flex;
+  justify-content: center;
+  margin: 2 auto;
+}
 
+button{
+  margin: 0;
+  margin-left: 1rem;
 
-
+}

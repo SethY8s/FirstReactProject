@@ -1,13 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 function TodoList() {
-    return (
-        <div>
-
-        </div>
-    )
+  return (
+    <div className="list-items">
+      <ul>
+        <li>
+          
+            <div>Homework</div>
+            <div>
+            <button>Complete</button> <button>Delete</button>
+            </div>
+          
+        </li>
+      </ul>
+    </div>
+  );
 }
 
-export default TodoList
+export default TodoList;
 
-// this makes the list components
+// this makes the list components alsoyou hould make mock up model before actually doing all the work
