@@ -5,7 +5,7 @@ import './assets/styles.css'
 
 function App() {
   return (
-    <div className='upperBox'>
+    <div className=''>
       <CreateTodo />
     </div>
   );

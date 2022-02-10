@@ -4,13 +4,11 @@ function TodoList() {
   return (
     <div className="list-items">
       <ul>
-        <li>
-          
+        <li> 
             <div>Homework</div>
             <div>
             <button>Complete</button> <button>Delete</button>
             </div>
-          
         </li>
       </ul>
     </div>
