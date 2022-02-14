@@ -29,10 +29,14 @@ function CreateTodo() {
         </button>
       </div>
       {list.map((singleTodo) => {
-          return <div>{singleTodo}</div>
+          return (
+          <div><div>{singleTodo}</div>
+          <button>delete button</button>
+          </div>
+          )
       })}
       </div>
-      {JSON.stringify(list)}
+      {/* {JSON.stringify(list)} */}
       <TodoList />
     </div>
   );
