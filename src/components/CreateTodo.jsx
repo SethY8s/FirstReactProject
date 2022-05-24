@@ -1,46 +1,58 @@
-import React, {useState} from 'react';
-import TodoList from './TodoList';
+import React, { useState } from 'react';
+
+let globalId = 0;
 
 function CreateTodo() {
+  const [task, setTask] = useState("");
+  const [todos, setTodos] = useState([]);
 
-    const[todo, setTodo] = useState();
-    const[list, setList] = useState([]);
+  function addTodo(e) {
+    e.preventDefault();
 
-    const AddTodo = (e) => {
-        e.preventDefault();
-        const newList = list;
-        newList.push(todo);
-        setList([...newList]);
-    }
+    setTodos((oldTodos) => {
+      setTask('')
+      return [...oldTodos, { todo: task, id: globalId++ }]
+    })
+  }
 
+  function deleteTodo(itemId) {
+    setTodos(oldTodos => oldTodos.filter(item => item.id !== itemId))
+  }
+
+  console.log(todos)
 
   return (
     <div>
-        <div>
-      <div className="box">
-        <div className="text-end">
-          <h2>React Todo</h2>
-          <h4>Add new Todo</h4>
-        </div>
-        <input onChange={(ev)=>{setTodo(ev.target.value)}}
-            type="text" name="todo" placeholder="write Todo" />
-        <button onClick={AddTodo} className="btn-addTodo" type="button" name="addTodo">
-          Add Todo
-        </button>
-      </div>
-      {list.map((singleTodo) => {
+      <h1>First todo app</h1>
+      <form onSubmit={addTodo}>
+        <input
+          type="text"
+          value={task}
+          onChange={(e) => {
+            setTask(e.target.value);
+          }}
+        />
+        <button type="submit">Add todo</button>
+      </form>
+
+
+      <ul>
+        {todos.map((item, index) => {
           return (
-          <div><div>{singleTodo}</div>
-          <button>delete button</button>
-          </div>
-          )
-      })}
-      </div>
-      {/* {JSON.stringify(list)} */}
-      <TodoList />
+            <div key={item.id}>
+              <li>
+                {item.todo} ({item.id})
+              </li>
+              <button onClick={() => deleteTodo(item.id)}>Delete</button>
+            </div>
+          );
+        })}
+      </ul>
     </div>
   );
 }
+
+
 
 export default CreateTodo;
 
