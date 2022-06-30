@@ -3,23 +3,23 @@ import React, { useState } from 'react';
 let globalId = 0;
 
 function CreateTodo() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState('');
   const [todos, setTodos] = useState([]);
 
   function addTodo(e) {
     e.preventDefault();
 
     setTodos((oldTodos) => {
-      setTask('')
-      return [...oldTodos, { todo: task, id: globalId++ }]
-    })
+      setTask('');
+      return [...oldTodos, { todo: task, id: globalId++ }];
+    });
   }
 
   function deleteTodo(itemId) {
-    setTodos(oldTodos => oldTodos.filter(item => item.id !== itemId))
+    setTodos((oldTodos) => oldTodos.filter((item) => item.id !== itemId));
   }
 
-  console.log(todos)
+  console.log(todos);
 
   return (
     <div>
@@ -34,7 +34,6 @@ function CreateTodo() {
         />
         <button type="submit">Add todo</button>
       </form>
-
 
       <ul>
         {todos.map((item, index) => {
@@ -51,8 +50,6 @@ function CreateTodo() {
     </div>
   );
 }
-
-
 
 export default CreateTodo;
 
